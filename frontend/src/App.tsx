@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import AgricultureLanding from './modules/agriculture/AgricultureLanding';
 import AgricultureModule from './modules/agriculture/AgricultureModule';
 import './index.css';
 
@@ -9,7 +10,8 @@ function App() {
       <div className="min-h-screen bg-[#0f1117]">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/agriculture" element={<AgricultureModule />} />
+          <Route path="/agriculture" element={<AgricultureLanding />} />
+          <Route path="/agriculture/app" element={<AgricultureModule />} />
         </Routes>
       </div>
     </Router>
