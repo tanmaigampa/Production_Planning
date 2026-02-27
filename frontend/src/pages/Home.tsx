@@ -110,7 +110,7 @@ const Home: React.FC = () => {
           src="/hero-illustration.png"
           alt="Professionals across industry sectors"
           className="absolute bottom-0 left-0 w-full pointer-events-none"
-          style={{ height: '38vh', objectFit: 'contain', objectPosition: 'bottom center' }}
+          style={{ height: '38vh', objectFit: 'cover', objectPosition: 'bottom center' }}
         />
 
       </section>
