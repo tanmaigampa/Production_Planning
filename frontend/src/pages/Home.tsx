@@ -84,25 +84,13 @@ const Home: React.FC = () => {
             production strategy for every scenario.
           </p>
 
-          <button
-            onClick={scrollToSectors}
-            className="btn-primary text-base px-8 py-3"
-          >
-            Select Sector <ChevronRight size={16} />
-          </button>
-
-          {/* Subtle stats row */}
-          <div className="mt-14 inline-grid grid-cols-3 divide-x divide-slate-200 border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm text-left">
-            {[
-              { label: 'Solver', value: 'PuLP / CBC' },
-              { label: 'Method', value: '2-Stage SP' },
-              { label: 'Sectors', value: '4 (1 Active)' },
-            ].map(s => (
-              <div key={s.label} className="px-8 py-4 text-center">
-                <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mb-1">{s.label}</p>
-                <p className="text-sm font-semibold text-slate-700 font-mono">{s.value}</p>
-              </div>
-            ))}
+          <div className="flex justify-center">
+            <button
+              onClick={scrollToSectors}
+              className="btn-primary text-base px-8 py-3"
+            >
+              Select Sector <ChevronRight size={16} />
+            </button>
           </div>
         </section>
 
@@ -115,15 +103,15 @@ const Home: React.FC = () => {
                 onClick={() => active && route && navigate(route)}
                 disabled={!active}
                 className={`card text-left group transition-all duration-200 ${active
-                    ? 'cursor-pointer hover:border-sky-400 hover:shadow-md'
-                    : 'cursor-default opacity-60'
+                  ? 'cursor-pointer hover:border-sky-400 hover:shadow-md'
+                  : 'cursor-default opacity-60'
                   }`}
               >
                 {/* Icon — centered */}
                 <div className="flex justify-center mb-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${active
-                      ? 'bg-sky-50 border border-sky-200'
-                      : 'bg-slate-100 border border-slate-200'
+                    ? 'bg-sky-50 border border-sky-200'
+                    : 'bg-slate-100 border border-slate-200'
                     }`}>
                     <Icon size={22} className={active ? 'text-sky-600' : 'text-slate-400'} />
                   </div>
