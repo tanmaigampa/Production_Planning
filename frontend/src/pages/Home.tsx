@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
+  TrendingUp,
+  GitBranch,
+  BarChart3,
   ArrowRight,
   Wheat,
   Factory,
@@ -9,6 +12,30 @@ import {
   ChevronRight,
   Zap,
 } from 'lucide-react';
+
+const FEATURES = [
+  {
+    icon: GitBranch,
+    color: 'text-sky-400',
+    bg: 'bg-sky-500/10 border-sky-500/20',
+    title: 'Two-Stage Pipeline',
+    desc: 'Commit first-stage decisions, then adapt each scenario with full recourse optimization.',
+  },
+  {
+    icon: BarChart3,
+    color: 'text-teal-400',
+    bg: 'bg-teal-500/10 border-teal-500/20',
+    title: 'Scenario Modelling',
+    desc: 'Build probability-weighted scenarios and stress-test your plan against every outcome.',
+  },
+  {
+    icon: TrendingUp,
+    color: 'text-amber-400',
+    bg: 'bg-amber-500/10 border-amber-500/20',
+    title: 'Profit Maximization',
+    desc: 'Linear-programming solver maximizes expected profit while respecting all operational constraints.',
+  },
+];
 
 const SECTORS = [
   { icon: Wheat, label: 'Agriculture', sub: 'Weather-driven crop planning', active: true },
@@ -75,6 +102,25 @@ const Home: React.FC = () => {
               <div key={s.label} className="bg-[#181d27] px-6 py-4 text-center">
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-medium mb-1">{s.label}</p>
                 <p className="text-sm font-semibold text-white font-mono">{s.value}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Features ── */}
+        <section>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-3">How It Works</h2>
+            <p className="text-slate-400 max-w-xl mx-auto">Three core capabilities that power every optimization run.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {FEATURES.map(({ icon: Icon, color, bg, title, desc }) => (
+              <div key={title} className="card group hover:border-sky-500/30 transition-all duration-300">
+                <div className={`w-11 h-11 rounded-lg border flex items-center justify-center mb-5 ${bg}`}>
+                  <Icon size={22} className={color} />
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">{title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
