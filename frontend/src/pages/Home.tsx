@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       <main className="max-w-6xl mx-auto px-6">
 
         {/* ── Hero ── */}
-        <section className="py-24 text-center animate-slide-up">
+        <section className="min-h-[calc(100vh-65px)] flex flex-col items-center justify-center text-center animate-slide-up">
 
           <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
             Plan with Confidence.<br />
