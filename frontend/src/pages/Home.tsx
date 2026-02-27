@@ -18,6 +18,8 @@ const SECTORS = [
     active: true,
     route: '/agriculture',
     actionLabel: 'Open',
+    iconBg: 'bg-green-50 border-green-200',
+    iconColor: 'text-green-600',
   },
   {
     icon: Factory,
@@ -26,6 +28,8 @@ const SECTORS = [
     active: false,
     route: null,
     actionLabel: 'Coming Soon',
+    iconBg: 'bg-amber-50 border-amber-200',
+    iconColor: 'text-amber-700',
   },
   {
     icon: FlaskConical,
@@ -34,6 +38,8 @@ const SECTORS = [
     active: false,
     route: null,
     actionLabel: 'Coming Soon',
+    iconBg: 'bg-purple-50 border-purple-200',
+    iconColor: 'text-purple-600',
   },
   {
     icon: Package,
@@ -42,6 +48,8 @@ const SECTORS = [
     active: false,
     route: null,
     actionLabel: 'Coming Soon',
+    iconBg: 'bg-orange-50 border-orange-200',
+    iconColor: 'text-orange-500',
   },
 ];
 
@@ -97,26 +105,24 @@ const Home: React.FC = () => {
         {/* ── Sectors ── */}
         <section ref={sectorsRef} className="pb-24">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SECTORS.map(({ icon: Icon, label, sub, active, route, actionLabel }) => (
+            {SECTORS.map(({ icon: Icon, label, sub, active, route, actionLabel, iconBg, iconColor }) => (
               <button
                 key={label}
                 onClick={() => active && route && navigate(route)}
-                className="card text-left group transition-all duration-200 cursor-pointer hover:border-sky-400 hover:shadow-md"
+                className="card group transition-all duration-200 cursor-pointer hover:border-slate-300 hover:shadow-md flex flex-col items-center py-8 px-6"
               >
                 {/* Icon — centered */}
-                <div className="flex justify-center mb-4">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-sky-50 border border-sky-200">
-                    <Icon size={22} className="text-sky-600" />
-                  </div>
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border mb-5 ${iconBg}`}>
+                  <Icon size={26} className={iconColor} />
                 </div>
 
                 {/* Text */}
-                <p className="font-bold text-sm text-slate-900 mb-1 text-center">{label}</p>
-                <p className="text-xs text-center text-teal-600 mb-4">{sub}</p>
+                <p className="font-bold text-base text-slate-900 mb-1.5 text-center">{label}</p>
+                <p className="text-sm text-center text-slate-500 mb-5 leading-relaxed">{sub}</p>
 
                 {/* Action row */}
-                <div className="flex items-center gap-1 text-xs font-semibold justify-center text-sky-600 group-hover:text-sky-500">
-                  {actionLabel} <ChevronRight size={13} />
+                <div className="flex items-center gap-1 text-sm font-semibold justify-center text-sky-600 group-hover:text-sky-500 mt-auto">
+                  {actionLabel} <ChevronRight size={14} />
                 </div>
               </button>
             ))}
