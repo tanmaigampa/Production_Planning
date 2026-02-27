@@ -80,42 +80,38 @@ const Home: React.FC = () => {
       {/* ── Hero ── */}
       <section
         className="relative overflow-hidden bg-[#f8fafc]"
-        style={{ minHeight: 'calc(100vh - 65px)' }}
+        style={{ height: 'calc(100vh - 65px)' }}
       >
-        {/* Text + CTA — vertically centered in upper ~55% */}
-        <div className="flex flex-col items-center text-center px-6 pt-[8vh] pb-[4vh]">
+        {/* Text + CTA — generously spaced from top */}
+        <div className="flex flex-col items-center text-center px-6 pt-[12vh]">
           <h1
-            className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight"
-            style={{ lineHeight: '1.15' }}
+            className="text-5xl sm:text-[3.5rem] md:text-[4rem] font-extrabold text-slate-900 tracking-tight"
+            style={{ lineHeight: '1.12' }}
           >
             Plan with Confidence.<br />
             <span className="text-sky-600">Execute with Precision.</span>
           </h1>
 
-          <p className="text-lg text-slate-500 max-w-2xl leading-[1.8] mt-5">
+          <p className="text-lg text-slate-500 max-w-xl leading-[1.75] mt-6">
             A next-generation optimization that models uncertainty and prepares your
             production strategy for every scenario.
           </p>
 
-          {/* 40px spacing before button */}
-          <div style={{ marginTop: '40px' }}>
-            <button
-              onClick={scrollToSectors}
-              className="btn-primary text-base px-8 py-3"
-            >
-              Select Sector <ChevronRight size={16} />
-            </button>
-          </div>
+          <button
+            onClick={scrollToSectors}
+            className="btn-primary text-base px-8 py-3 mt-10"
+          >
+            Select Sector <ChevronRight size={16} />
+          </button>
         </div>
 
-        {/* Illustration — pinned to bottom, wide banner */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-[#f8fafc]">
-          <img
-            src="/hero-illustration.png"
-            alt="Professionals across industry sectors"
-            style={{ width: '85%', maxHeight: '38vh', objectFit: 'contain', objectPosition: 'bottom' }}
-          />
-        </div>
+        {/* Illustration — full-width floor pinned to bottom */}
+        <img
+          src="/hero-illustration.png"
+          alt="Professionals across industry sectors"
+          className="absolute bottom-0 left-0 w-full pointer-events-none"
+          style={{ height: '38vh', objectFit: 'contain', objectPosition: 'bottom center' }}
+        />
 
       </section>
 
